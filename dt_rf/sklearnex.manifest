@@ -1,0 +1,114 @@
+[loader]
+entrypoint = "file:/home/rkubicek/gramine-debug/lib/x86_64-linux-gnu/gramine/libsysdb.so"
+log_level = "debug"
+log_file = "logs.txt"
+insecure__use_host_env = true
+insecure__use_cmdline_argv = true
+uid = 1224
+gid = 1230
+pal_internal_mem_size = "128M"
+
+[loader.env]
+LD_LIBRARY_PATH = "/lib:/lib/x86_64-linux-gnu:/usr//lib/x86_64-linux-gnu:/home/user/.local/lib"
+HOME = "/home/rkubicek"
+
+[loader.env.OMP_NUM_THREADS]
+passthrough = true
+
+[libos]
+entrypoint = "/usr/bin/python3.10"
+
+[sys]
+enable_extra_runtime_domain_names_conf = true
+
+[sys.stack]
+size = "8M"
+
+[[fs.mounts]]
+path = "/usr/bin/python3.10"
+uri = "file:/usr/bin/python3.10"
+
+[[fs.mounts]]
+path = "/lib"
+uri = "file:/home/rkubicek/gramine-debug/lib/x86_64-linux-gnu/gramine/runtime/glibc"
+
+[[fs.mounts]]
+path = "/lib/x86_64-linux-gnu"
+uri = "file:/lib/x86_64-linux-gnu"
+
+[[fs.mounts]]
+path = "/usr//lib/x86_64-linux-gnu"
+uri = "file:/usr//lib/x86_64-linux-gnu"
+
+[[fs.mounts]]
+path = "/home/rkubicek/gramine-debug/lib/python3.10/site-packages"
+uri = "file:/home/rkubicek/gramine-debug/lib/python3.10/site-packages"
+
+[[fs.mounts]]
+path = "/usr/lib/python3.10"
+uri = "file:/usr/lib/python3.10"
+
+[[fs.mounts]]
+path = "/usr/lib/python3.10/lib-dynload"
+uri = "file:/usr/lib/python3.10/lib-dynload"
+
+[[fs.mounts]]
+path = "/home/rkubicek/.local/lib/python3.10/site-packages"
+uri = "file:/home/rkubicek/.local/lib/python3.10/site-packages"
+
+[[fs.mounts]]
+path = "/usr/local/lib/python3.10/dist-packages"
+uri = "file:/usr/local/lib/python3.10/dist-packages"
+
+[[fs.mounts]]
+path = "/usr/lib/python3/dist-packages"
+uri = "file:/usr/lib/python3/dist-packages"
+
+[[fs.mounts]]
+path = "/home/user/.local/lib"
+uri = "file:/home/rkubicek/.local/lib"
+
+[[fs.mounts]]
+type = "tmpfs"
+path = "/tmp"
+
+[sgx]
+enclave_size = "64G"
+max_threads = 256
+edmm_enable = false
+allowed_files = [
+    "file:results/result_dt.csv",
+    "file:results/result_rf.csv",
+]
+trusted_files = [
+    { uri = "file:/home/rkubicek/gramine-debug/lib/x86_64-linux-gnu/gramine/libsysdb.so" },
+    { uri = "file:/usr/bin/python3.10" },
+    { uri = "file:/home/rkubicek/gramine-debug/lib/x86_64-linux-gnu/gramine/runtime/glibc/" },
+    { uri = "file:/lib/x86_64-linux-gnu/" },
+    { uri = "file:/usr//lib/x86_64-linux-gnu/" },
+    { uri = "file:/usr/share/zoneinfo/tzdata.zi" },
+    { uri = "file:/home/rkubicek/gramine-debug/lib/python3.10/site-packages/" },
+    { uri = "file:/usr/lib/python3.10/" },
+    { uri = "file:/usr/lib/python3.10/lib-dynload/" },
+    { uri = "file:/home/rkubicek/.local/lib/python3.10/site-packages/" },
+    { uri = "file:/usr/local/lib/python3.10/dist-packages/" },
+    { uri = "file:/usr/lib/python3/dist-packages/" },
+    { uri = "file:/usr/lib/python3.10/" },
+    { uri = "file:/home/rkubicek/.local/lib/" },
+    { uri = "file:rf.py" },
+    { uri = "file:dt.py" },
+    { uri = "file:train_test.py" },
+    { uri = "file:preprocess.py" },
+    { uri = "file:datasets_all/" },
+]
+isvprodid = 0
+isvsvn = 0
+remote_attestation = "none"
+debug = false
+require_avx = false
+require_avx512 = false
+require_mpx = false
+require_pkru = false
+require_amx = false
+require_exinfo = false
+enable_stats = false
