@@ -10,6 +10,9 @@ Template for scikit-learn is taken from: https://github.com/gramineproject/examp
 
 ### Experiments
 
+  - Experiments can be found in the subfolders
+  - Must be run in tmux environment, which sets the environment variables (Start with ./env.sh
+
 | Experiment | Model | Description                        |
 |------------|-------|------------------------------------|
 | 1          | NB    | Different Datasets                 |
