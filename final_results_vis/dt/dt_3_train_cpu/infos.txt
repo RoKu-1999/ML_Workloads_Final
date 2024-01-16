@@ -1,0 +1,8 @@
+Train Depth 3:
+Enclave Size: 16GB
+Num Threads: 1
+
+
+Train Depth None:
+Enclave Size: 64GB
+Num Threads: 1

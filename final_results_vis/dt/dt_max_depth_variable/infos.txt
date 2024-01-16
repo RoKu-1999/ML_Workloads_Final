@@ -1,0 +1,2 @@
+Enclave Size: 32GB
+Num Threads: 1
