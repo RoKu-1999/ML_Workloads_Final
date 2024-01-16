@@ -7,6 +7,7 @@ Template for scikit-learn is taken from: https://github.com/gramineproject/examp
   - https://www.kaggle.com/datasets/subhajournal/android-malware-detection
   - https://archive.ics.uci.edu/ml/datasets/HIGGS (2.6GB)
   - https://www.kaggle.com/mlg-ulb/creditcardfraud (150MB)
+  - https://www.cs.toronto.edu/~kriz/cifar.html
 
 ### Experiments
 
