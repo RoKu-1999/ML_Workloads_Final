@@ -1,0 +1,9 @@
+DT:
+Train Depth 3:
+Enclave Size: 16GB
+Num Threads: 1
+
+RF:
+Train Depth 3:
+Enclave Size: 32GB
+Num Threads: 1

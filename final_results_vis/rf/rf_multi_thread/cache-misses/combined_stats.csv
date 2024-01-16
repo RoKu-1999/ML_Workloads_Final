@@ -1,0 +1,15 @@
+threads,event,counter_val
+32,branch-instructions,325215785890.6
+32,branch-misses,12551444036.0
+32,cache-misses,5977166253.2
+32,cache-references,46394276358.2
+32,cycles,2191124295458.2
+32,instructions,2897543606122.8
+32,ref-cycles,1425536557755.2
+1,branch-instructions,333312180360.4
+1,branch-misses,12577878130.6
+1,cache-misses,12011584506.6
+1,cache-references,46335506296.2
+1,cycles,2811322536568.2
+1,instructions,2940893451802.6
+1,ref-cycles,2048588129227.2

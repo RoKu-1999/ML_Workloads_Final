@@ -1,0 +1,4 @@
+Train Depth 3:
+Enclave Size: 64GB
+Num Threads: 1, 2, 4, 8, 16, 32, 33, 34, 36, 40, 48, 64
+Train-test: 70-30

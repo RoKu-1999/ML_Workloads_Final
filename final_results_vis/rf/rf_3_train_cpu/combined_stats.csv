@@ -1,0 +1,11 @@
+model,train_percent,event,counter_val
+dt,90,branch-instructions,4.4600359449644594e+58
+dt,90,branch-misses,9.986679024995426e+48
+dt,90,cache-misses,4.854601980487282e+48
+dt,90,cache-references,6.285430423063304e+53
+dt,90,ref-cycles,1.626365945601632e+59
+rf,90,branch-instructions,3.8267345143838297e+58
+rf,90,branch-misses,4.5653396524513715e+48
+rf,90,cache-misses,3.170764212323461e+48
+rf,90,cache-references,5.941791073059419e+53
+rf,90,ref-cycles,1.0444252978730478e+59
