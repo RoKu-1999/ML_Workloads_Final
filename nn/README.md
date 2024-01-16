@@ -2,9 +2,9 @@
 
 To run experiments for NN Training and Eval:
 
-    ./env_bin.sh
+    ./env.sh
 
 Inside tmux run:
  
-    run_exp -n 0,1 -t 01:30:00 -m "check" ./run.sh
+    run_exp -n 0,1 -t 01:30:00 -m "check" ./exp_18.sh
 
