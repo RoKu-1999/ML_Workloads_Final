@@ -57,7 +57,7 @@ Template for scikit-learn is taken from: https://github.com/gramineproject/examp
   - pip install tzdata --upgrade
 
 ### Building and installing gramine as debug version:
-  --buildtype=release
+  --buildtype=debugoptimized
 
 ### Building and installing perf-tool from source:
   - uname -r => gives you your kernel version
