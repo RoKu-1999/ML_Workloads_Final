@@ -10,7 +10,29 @@ Template for scikit-learn is taken from: https://github.com/gramineproject/examp
 
 ### Experiments
 
-
+| Experiment | Model | Description                        |
+|------------|-------|------------------------------------|
+| 1          | NB    | Different Datasets                 |
+| 2          | DT    | Different Datasets                 |
+| 3          | DT    | Training Size Increase             |
+| 4          | DT    | Relative Function Sampling         |
+| 5          | DT    | Absolute Function Sampling         |
+| 6          | DT    | Tree Depth Increase                |
+| 7          | DT    | Relative Function Sampling         |
+| 8          | DT/RF | Training Size Increase             |
+| 9          | DT/RF | Event Counter Comparison           |
+| 10         | RF    | Tree Depth Increase                |
+| 11         | RF    | Number of Trees with Bootstrap     |
+| 12         | RF    | Number of Trees without Bootstrap  |
+| 13         | RF    | Function Sampling                  |
+| 14         | RF    | Multithreading Bootstrap           |
+| 15         | RF    | Multithreading without Bootstrap   |
+| 16         | RF    | Cache Misses Single vs. 32 Threads |
+| 17         | SVM   | Training and Inference             |
+| 18         | NN    | Training and Inference             |
+| 19         | FL    | Communication Epoch Increase       |
+| 20         | FL    | Communication Client Increase      |
+| 21         | FL    | Asynchronous Enclave Calls         |
 
 ### Building and installing gramine from source:
 - uninstall gramine
