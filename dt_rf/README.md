@@ -1,6 +1,6 @@
 # DT and RF Gramine Bin Experiments
 
-To run experiments for NB Training and Eval:
+To run experiments for DT and RF Training and Inference:
 
     ./env.sh
 
