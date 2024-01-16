@@ -1,6 +1,6 @@
 # Support Vector Machine Experiments
 
-To run experiments for NB Training and Eval:
+To run experiments for SVM Training and Eval:
 
     ./env.sh
 
