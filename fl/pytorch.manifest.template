@@ -1,0 +1,59 @@
+loader.entrypoint = "file:{{ gramine.libos }}"
+libos.entrypoint = "{{ entrypoint }}"
+
+loader.log_level = "{{ log_level }}"
+loader.log_file = "logs.txt"
+loader.env.LD_LIBRARY_PATH = "/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}"
+loader.env.HOME = "{{ env.HOME }}"
+
+loader.insecure__use_cmdline_argv = true
+
+fs.mounts = [
+  { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
+  { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
+  { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
+  { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
+{% for path in python.get_sys_path(entrypoint) %}
+  { path = "{{ path }}", uri = "file:{{ path }}" },
+{% endfor %}
+
+  { type = "tmpfs", path = "/tmp" },
+]
+
+sys.disallow_subprocesses = true
+
+#sgx.insecure__rpc_thread_num = 4
+
+sgx.enclave_size = "16G"
+sgx.max_threads = 256
+sgx.edmm_enable = {{ 'true' if env.get('EDMM', '0') == '1' else 'false' }}
+#sgx.debug = true
+#sgx.enable_stats = true
+#sgx.vtune_profile = true
+#sgx.profile.enable = "main"
+#sgx.profile.enable = "all"
+#sgx.profile.with_stack = false
+
+sgx.trusted_files = [
+  "file:{{ entrypoint }}",
+  "file:{{ gramine.libos }}",
+  "file:{{ gramine.runtimedir() }}/",
+  "file:{{ arch_libdir }}/",
+  "file:/usr/{{ arch_libdir }}/",
+{% for path in python.get_sys_path(entrypoint) %}
+  "file:{{ path }}{{ '/' if path.is_dir() else '' }}",
+{% endfor %}
+  "file:.cache/certificates/ca.crt",
+  "file:.cache/certificates/server.pem",
+  "file:.cache/certificates/server.key",
+  "file:server.py",
+  "file:/etc/host.conf",
+  "file:/etc/hosts",
+  "file:/etc/nsswitch.conf",
+  "file:/etc/resolv.conf",
+]
+
+sgx.allowed_files = [
+  "file:results/server_result.txt",
+  "file:dataset/",
+]
