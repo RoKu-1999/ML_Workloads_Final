@@ -1,0 +1,58 @@
+# SPDX-License-Identifier: LGPL-3.0-or-later
+
+# PyTorch manifest template
+
+loader.entrypoint = "file:{{ gramine.libos }}"
+libos.entrypoint = "{{ entrypoint }}"
+
+loader.log_level = "{{ log_level }}"
+loader.log_file = "logs.txt"
+
+loader.env.LD_LIBRARY_PATH = "/lib:/usr/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}"
+loader.env.HOME = "{{ env.HOME }}"
+
+# loader.env.LD_PRELOAD = "/lib/libgomp.so.1"
+
+# Restrict the maximum number of threads to prevent insufficient memory
+# issue, observed on CentOS/RHEL.
+loader.env.OMP_NUM_THREADS = "1"
+
+loader.insecure__use_cmdline_argv = true
+
+fs.mounts = [
+  { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
+  { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
+  { path = "/usr/lib", uri = "file:/usr/lib" },
+  { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
+  { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
+{% for path in python.get_sys_path(entrypoint) %}
+  { path = "{{ path }}", uri = "file:{{ path }}" },
+{% endfor %}
+
+  { type = "tmpfs", path = "/tmp" },
+]
+
+sgx.enclave_size = "128G"
+sgx.max_threads = 256
+sgx.edmm_enable = {{ 'true' if env.get('EDMM', '0') == '1' else 'false' }}
+
+sgx.trusted_files = [
+  "file:{{ entrypoint }}",
+  "file:{{ gramine.libos }}",
+  "file:{{ gramine.runtimedir() }}/",
+  "file:/usr/lib/",
+  "file:{{ arch_libdir }}/",
+  "file:/usr/{{ arch_libdir }}/",
+{% for path in python.get_sys_path(entrypoint) %}
+  "file:{{ path }}{{ '/' if path.is_dir() else '' }}",
+{% endfor %}
+  "file:/home/rkubicek/.cache/huggingface/",
+  "file:main.py",
+]
+
+sgx.allowed_files = [
+  "file:result_batch_train.txt",
+  "file:result_batch_eval.txt",
+  "file:result_epoch_train.txt",
+  "file:result_epoch_eval.txt",
+]
