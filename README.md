@@ -10,7 +10,7 @@ Template for scikit-learn is taken from: https://github.com/gramineproject/examp
   - https://www.cs.toronto.edu/~kriz/cifar.html
 
 The datasets should be located in the corresponding experiments folder, under datasets_all folder.
-A given installation script is provided in dataset_download.sh
+A given installation script is provided in download_datasets.sh
 
 
 ### Experiments
