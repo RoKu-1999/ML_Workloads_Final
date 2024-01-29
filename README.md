@@ -9,10 +9,15 @@ Template for scikit-learn is taken from: https://github.com/gramineproject/examp
   - https://www.kaggle.com/mlg-ulb/creditcardfraud (150MB)
   - https://www.cs.toronto.edu/~kriz/cifar.html
 
+The datasets should be located in the corresponding experiments folder, under datasets_all folder.
+A given installation script is provided in dataset_download.sh
+
+
 ### Experiments
 
   - Experiments can be found in the subfolders
-  - Must be run in tmux environment, which sets the environment variables (Start with ./env.sh
+  - Must be run in tmux environment, which sets the environment variables (Start with ./env.sh)
+  - gramine-bin and gramine-debug must be located under $HOME
 
 | Experiment | Model | Description                        |
 |------------|-------|------------------------------------|
